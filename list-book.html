@@ -5,37 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="List a book for exchange with the LeafLoop community.">
   <title>List a book | LeafLoop</title>
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <header class="site-header">
-    <a class="brand" href="index.html">leaf<span>loop</span></a>
-    <nav class="site-nav" aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="browse.html">Browse</a>
-      <a class="active" href="list-book.html" aria-current="page">List a book</a>
-      <a href="swaps.html">My swaps</a>
-      <a href="profile.html">Profile</a>
-    </nav>
+  <header class="site-header navbar navbar-expand-lg">
+    <div class="container-fluid px-0">
+      <a class="brand navbar-brand" href="index.html">leaf<span>loop</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Open navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav class="collapse navbar-collapse" id="main-navigation" aria-label="Main navigation">
+        <ul class="site-nav navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="browse.html">Browse</a></li>
+          <li class="nav-item"><a class="nav-link active" href="list-book.html" aria-current="page">List a book</a></li>
+          <li class="nav-item"><a class="nav-link" href="swaps.html">My swaps</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main id="main-content">
+  <main class="container" id="main-content">
     <p class="eyebrow">Give it another chapter</p>
     <h1>List a book.</h1>
 
-    <section class="form-panel list-form" aria-label="Book listing form">
+    <section class="form-panel list-form mt-4" aria-label="Book listing form">
       <p>Tell the community about a book you are ready to pass on. You can decide what you would like to receive in return.</p>
       <form action="list-book.html" method="get">
         <label for="title">Book title</label>
-        <input id="title" name="title" type="text" placeholder="e.g. The Song of Achilles" required>
+        <input class="form-control" id="title" name="title" type="text" placeholder="e.g. The Song of Achilles" required>
 
         <label for="author">Author</label>
-        <input id="author" name="author" type="text" placeholder="Author name" required>
+        <input class="form-control" id="author" name="author" type="text" placeholder="Author name" required>
 
         <label for="book-condition">Condition</label>
-        <select id="book-condition" name="condition" required>
+        <select class="form-select" id="book-condition" name="condition" required>
           <option value="">Choose a condition</option>
           <option value="like-new">Like new</option>
           <option value="good">Good</option>
@@ -43,12 +51,12 @@
         </select>
 
         <label for="wanted">What would you like to swap for?</label>
-        <input id="wanted" name="wanted" type="text" placeholder="Genre, title, or 'open to offers'" required>
+        <input class="form-control" id="wanted" name="wanted" type="text" placeholder="Genre, title, or 'open to offers'" required>
 
         <label for="note">A note for readers</label>
-        <textarea id="note" name="note" rows="5" placeholder="Share anything useful about the book."></textarea>
+        <textarea class="form-control" id="note" name="note" rows="5" placeholder="Share anything useful about the book."></textarea>
 
-        <button class="button" type="submit">Publish listing</button>
+        <button class="button btn mt-3" type="submit">Publish listing</button>
         <p class="form-note">This classroom demo checks the form in your browser but does not save the listing.</p>
       </form>
     </section>
@@ -56,38 +64,41 @@
     <section class="condition-guide" aria-labelledby="condition-guide-title">
       <p class="eyebrow">Before you list</p>
       <h2 id="condition-guide-title">Book condition guide</h2>
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Condition</th>
-            <th scope="col">What it means</th>
-            <th scope="col">Small marks</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Like new</th>
-            <td>Clean pages and a cover with almost no wear.</td>
-            <td>None or barely visible</td>
-          </tr>
-          <tr>
-            <th scope="row">Good</th>
-            <td>Fully readable with light wear from normal use.</td>
-            <td>Allowed</td>
-          </tr>
-          <tr>
-            <th scope="row">Well read</th>
-            <td>Readable with clear signs of age or frequent use.</td>
-            <td>Expected</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle mb-0">
+          <thead>
+            <tr>
+              <th scope="col">Condition</th>
+              <th scope="col">What it means</th>
+              <th class="text-center" scope="col">Small marks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Like new</th>
+              <td>Clean pages and a cover with almost no wear.</td>
+              <td class="text-center">None or barely visible</td>
+            </tr>
+            <tr>
+              <th scope="row">Good</th>
+              <td>Fully readable with light wear from normal use.</td>
+              <td class="text-center">Allowed</td>
+            </tr>
+            <tr>
+              <th scope="row">Well read</th>
+              <td>Readable with clear signs of age or frequent use.</td>
+              <td class="text-center">Expected</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer container-fluid">
     <span>© 2026 LeafLoop</span>
     <span>Helping Astana readers exchange books locally.</span>
   </footer>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

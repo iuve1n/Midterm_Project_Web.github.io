@@ -67,20 +67,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     flex-wrap: wrap;
     gap: 1.2rem;
     justify-content: flex-end;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .site-nav a {
+    color: var(--ink);
     font-size: .75rem;
     text-decoration: none;
 }
 
-.site-nav a:hover, .site-nav .active {
+.site-nav .nav-link:hover, .site-nav .nav-link.active {
     color: var(--orange);
     text-decoration: underline;
     text-underline-offset: .35rem;
 }
 
-main {
+main.container {
     margin: 0 auto;
     max-width: 1200px;
     padding: clamp(2.5rem, 6vw, 5.5rem) clamp(1.25rem, 5vw, 5rem);
@@ -88,13 +92,14 @@ main {
 
 h1, h2, h3 {
     font-family: Fraunces, serif;
-    line-height: 1;
+    line-height: 1.12;
+    overflow-wrap: anywhere;
 }
 
 h1 {
     font-size: clamp(3.3rem, 8vw, 7rem);
     letter-spacing: -.06em;
-    margin: 0;
+    margin: 0 0 1rem;
 }
 
 h2 {
@@ -132,6 +137,7 @@ p {
     font-size: .8rem;
     padding: .9rem 1.15rem;
     text-decoration: none;
+    white-space: normal;
 }
 
 .button:hover {
@@ -147,7 +153,7 @@ p {
 .hero {
     display: grid;
     gap: 3rem;
-    grid-template-columns: 1.2fr .8fr;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
     min-height: 470px;
 }
 
@@ -171,7 +177,7 @@ p {
 .stats, .book-grid {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     margin-top: 2rem;
 }
 
@@ -216,10 +222,14 @@ p {
     text-transform: uppercase;
 }
 
-.filter-bar, .swap-layout, .profile-layout {
+.swap-layout, .profile-layout {
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 240px minmax(0, 1fr);
+}
+
+.filter-bar > *, .profile-layout > *, .swap-layout > *, .swap-item > * {
+    min-width: 0;
 }
 
 .filter-panel, .form-panel, .profile-aside {
@@ -275,12 +285,25 @@ tbody tr:nth-child(even) {
     background: #fffaf2;
 }
 
+.condition-guide .table thead th {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.condition-guide .table tbody tr:nth-child(even) > * {
+    background: #fffaf2;
+}
+
 .swap-item {
     border-bottom: 1px solid var(--line);
     display: grid;
     gap: 1rem;
-    grid-template-columns: 90px 1fr auto;
+    grid-template-columns: 90px minmax(0, 1fr) minmax(120px, auto);
     padding: 1.25rem 0;
+}
+
+.swap-item .button {
+    align-self: center;
 }
 
 .mini-cover {
@@ -326,6 +349,16 @@ tbody tr:nth-child(even) {
     padding: 1.25rem clamp(1.25rem, 5vw, 5rem);
 }
 
+@media (max-width: 991.98px) {
+    .swap-layout, .profile-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-layout .book-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 @media (max-width: 760px) {
     .site-header, .site-footer {
         align-items: flex-start;
@@ -337,7 +370,7 @@ tbody tr:nth-child(even) {
         justify-content: flex-start;
     }
 
-    .hero, .filter-bar, .swap-layout, .profile-layout {
+    .hero, .swap-layout, .profile-layout {
         grid-template-columns: 1fr;
     }
 

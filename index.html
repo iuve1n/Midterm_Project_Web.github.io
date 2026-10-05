@@ -5,35 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="LeafLoop is a local book exchange for readers in Astana.">
   <title>LeafLoop | Book exchange</title>
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <header class="site-header">
-    <a class="brand" href="index.html">leaf<span>loop</span></a>
-    <nav class="site-nav" aria-label="Main navigation">
-      <a class="active" href="index.html" aria-current="page">Home</a>
-      <a href="browse.html">Browse</a>
-      <a href="list-book.html">List a book</a>
-      <a href="swaps.html">My swaps</a>
-      <a href="profile.html">Profile</a>
-    </nav>
+  <header class="site-header navbar navbar-expand-lg">
+    <div class="container-fluid px-0">
+      <a class="brand navbar-brand" href="index.html">leaf<span>loop</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Open navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav class="collapse navbar-collapse" id="main-navigation" aria-label="Main navigation">
+        <ul class="site-nav navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="browse.html">Browse</a></li>
+          <li class="nav-item"><a class="nav-link" href="list-book.html">List a book</a></li>
+          <li class="nav-item"><a class="nav-link" href="swaps.html">My swaps</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main id="main-content">
-    <section class="hero">
+  <main class="container" id="main-content">
+    <section class="hero mb-5">
       <div class="hero-copy">
         <p class="eyebrow">A local book exchange</p>
         <h1>Pass the story on.</h1>
         <p>LeafLoop helps readers trade books they have loved for books they cannot wait to open. Give a book a second chapter, and find your next favourite nearby.</p>
-        <a class="button" href="browse.html">Browse books</a>
-        <a class="button button-outline" href="list-book.html">List a book</a>
+        <a class="button btn" href="browse.html">Browse books</a>
+        <a class="button button-outline btn" href="list-book.html">List a book</a>
       </div>
       <img class="hero-image" src="assets/images/book-stack.svg" alt="Four colourful books stacked beside a green leaf">
     </section>
 
-    <section class="stats" aria-label="LeafLoop community activity">
+    <section class="stats mt-4" aria-label="LeafLoop community activity">
       <div class="stat">
         <strong>1,284</strong>
         books looking for a new shelf
@@ -56,7 +64,7 @@
         </div>
         <a href="browse.html">View all books →</a>
       </div>
-      <div class="book-grid">
+      <div class="book-grid mt-4">
         <article class="book-card">
           <img class="book-cover-image" src="assets/images/cover-leaf.svg" alt="Abstract green cover for The Midnight Library">
           <h3>The Midnight Library</h3>
@@ -79,9 +87,10 @@
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer container-fluid">
     <span>© 2026 LeafLoop</span>
     <span>Helping Astana readers exchange books locally.</span>
   </footer>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

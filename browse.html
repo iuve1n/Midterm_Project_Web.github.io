@@ -5,34 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Browse books offered by LeafLoop readers in Astana.">
   <title>Browse books | LeafLoop</title>
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <header class="site-header">
-    <a class="brand" href="index.html">leaf<span>loop</span></a>
-    <nav class="site-nav" aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a class="active" href="browse.html" aria-current="page">Browse</a>
-      <a href="list-book.html">List a book</a>
-      <a href="swaps.html">My swaps</a>
-      <a href="profile.html">Profile</a>
-    </nav>
+  <header class="site-header navbar navbar-expand-lg">
+    <div class="container-fluid px-0">
+      <a class="brand navbar-brand" href="index.html">leaf<span>loop</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navigation" aria-controls="main-navigation" aria-expanded="false" aria-label="Open navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <nav class="collapse navbar-collapse" id="main-navigation" aria-label="Main navigation">
+        <ul class="site-nav navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="browse.html" aria-current="page">Browse</a></li>
+          <li class="nav-item"><a class="nav-link" href="list-book.html">List a book</a></li>
+          <li class="nav-item"><a class="nav-link" href="swaps.html">My swaps</a></li>
+          <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <main id="main-content">
+  <main class="container" id="main-content">
     <p class="eyebrow">The community shelf</p>
     <h1>Find your next read.</h1>
 
-    <div class="filter-bar">
-      <aside class="filter-panel" aria-labelledby="filter-title">
+    <div class="filter-bar row g-4 mt-2">
+      <aside class="filter-panel col-lg-3" aria-labelledby="filter-title">
         <h2 id="filter-title">Filter books</h2>
         <label for="search">Search</label>
-        <input id="search" name="search" type="search" placeholder="Title or author">
+        <input class="form-control" id="search" name="search" type="search" placeholder="Title or author">
 
         <label for="genre">Genre</label>
-        <select id="genre" name="genre">
+        <select class="form-select" id="genre" name="genre">
           <option>All genres</option>
           <option>Fiction</option>
           <option>Non-fiction</option>
@@ -40,7 +48,7 @@
         </select>
 
         <label for="condition">Condition</label>
-        <select id="condition" name="condition">
+        <select class="form-select" id="condition" name="condition">
           <option>Any condition</option>
           <option>Like new</option>
           <option>Good</option>
@@ -48,35 +56,36 @@
         </select>
       </aside>
 
-      <section class="book-grid" aria-label="Available books">
+      <section class="book-grid col-lg-9 mt-0" aria-label="Available books">
         <article class="book-card">
           <img class="book-cover-image" src="assets/images/cover-leaf.svg" alt="Abstract green cover for Normal People">
           <h2>Normal People</h2>
           <p class="book-author">Sally Rooney</p>
           <p><span class="tag">Good condition</span><br>Swap for contemporary fiction</p>
-          <a class="button" href="swaps.html">Request swap</a>
+          <a class="button btn" href="swaps.html">Request swap</a>
         </article>
         <article class="book-card">
           <img class="book-cover-image" src="assets/images/cover-orange.svg" alt="Abstract orange cover for The Alchemist">
           <h2>The Alchemist</h2>
           <p class="book-author">Paulo Coelho</p>
           <p><span class="tag">Like new</span><br>Swap for a travel book</p>
-          <a class="button" href="swaps.html">Request swap</a>
+          <a class="button btn" href="swaps.html">Request swap</a>
         </article>
         <article class="book-card">
           <img class="book-cover-image" src="assets/images/cover-ink.svg" alt="Abstract dark green cover for Sapiens">
           <h2>Sapiens</h2>
           <p class="book-author">Yuval Noah Harari</p>
           <p><span class="tag">Well read</span><br>Open to any non-fiction</p>
-          <a class="button" href="swaps.html">Request swap</a>
+          <a class="button btn" href="swaps.html">Request swap</a>
         </article>
       </section>
     </div>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer container-fluid">
     <span>© 2026 LeafLoop</span>
     <span>Helping Astana readers exchange books locally.</span>
   </footer>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
