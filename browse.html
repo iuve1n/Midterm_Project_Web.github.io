@@ -18,7 +18,6 @@
       <a href="list-book.html">List a book</a>
       <a href="swaps.html">My swaps</a>
       <a href="profile.html">Profile</a>
-      <a href="wireframes.html">Wireframes</a>
     </nav>
   </header>
 
@@ -30,10 +29,10 @@
       <aside class="filter-panel" aria-labelledby="filter-title">
         <h2 id="filter-title">Filter books</h2>
         <label for="search">Search</label>
-        <input id="search" type="search" placeholder="Title or author">
+        <input id="search" name="search" type="search" placeholder="Title or author">
 
         <label for="genre">Genre</label>
-        <select id="genre">
+        <select id="genre" name="genre">
           <option>All genres</option>
           <option>Fiction</option>
           <option>Non-fiction</option>
@@ -41,7 +40,7 @@
         </select>
 
         <label for="condition">Condition</label>
-        <select id="condition">
+        <select id="condition" name="condition">
           <option>Any condition</option>
           <option>Like new</option>
           <option>Good</option>
@@ -51,20 +50,23 @@
 
       <section class="book-grid" aria-label="Available books">
         <article class="book-card">
-          <div class="book-cover">Normal People</div>
-          <h2>Sally Rooney</h2>
+          <img class="book-cover-image" src="assets/images/cover-leaf.svg" alt="Abstract green cover for Normal People">
+          <h2>Normal People</h2>
+          <p class="book-author">Sally Rooney</p>
           <p><span class="tag">Good condition</span><br>Swap for contemporary fiction</p>
           <a class="button" href="swaps.html">Request swap</a>
         </article>
         <article class="book-card">
-          <div class="book-cover">The Alchemist</div>
-          <h2>Paulo Coelho</h2>
+          <img class="book-cover-image" src="assets/images/cover-orange.svg" alt="Abstract orange cover for The Alchemist">
+          <h2>The Alchemist</h2>
+          <p class="book-author">Paulo Coelho</p>
           <p><span class="tag">Like new</span><br>Swap for a travel book</p>
           <a class="button" href="swaps.html">Request swap</a>
         </article>
         <article class="book-card">
-          <div class="book-cover">Sapiens</div>
-          <h2>Yuval Noah Harari</h2>
+          <img class="book-cover-image" src="assets/images/cover-ink.svg" alt="Abstract dark green cover for Sapiens">
+          <h2>Sapiens</h2>
+          <p class="book-author">Yuval Noah Harari</p>
           <p><span class="tag">Well read</span><br>Open to any non-fiction</p>
           <a class="button" href="swaps.html">Request swap</a>
         </article>

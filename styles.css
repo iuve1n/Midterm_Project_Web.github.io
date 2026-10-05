@@ -160,52 +160,12 @@ p {
     max-width: 540px;
 }
 
-.book-art {
-    align-items: center;
-    background: var(--mustard);
-    display: flex;
-    justify-content: center;
-    min-height: 380px;
-    overflow: hidden;
-    position: relative;
-}
-
-.book-art::before, .book-art::after {
-    background: var(--orange);
-    content: "";
-    position: absolute;
-    transform: rotate(-12deg);
-}
-
-.book-art::before {
-    height: 300px;
-    width: 100px;
-}
-
-.book-art::after {
-    background: var(--ink);
-    height: 250px;
-    left: 45%;
-    width: 90px;
-    transform: rotate(11deg);
-}
-
-.book-spine {
-    background: var(--leaf);
-    height: 335px;
-    position: relative;
-    transform: rotate(-3deg);
-    width: 105px;
-    z-index: 1;
-}
-
-.book-spine p {
-    color: var(--paper);
-    font-family: Fraunces, serif;
-    font-size: 1.7rem;
-    line-height: 1.05;
-    padding: 1.2rem .5rem;
-    writing-mode: vertical-rl;
+.hero-image {
+    align-self: center;
+    display: block;
+    max-height: 470px;
+    object-fit: cover;
+    width: 100%;
 }
 
 .stats, .book-grid {
@@ -234,29 +194,20 @@ p {
     margin-top: 5rem;
 }
 
-.book-cover {
-    align-items: center;
-    background: var(--leaf);
-    color: var(--paper);
-    display: flex;
-    font-family: Fraunces, serif;
-    font-size: 1.5rem;
+.book-cover-image {
+    display: block;
     height: 220px;
-    justify-content: center;
-    padding: 1rem;
-    text-align: center;
-}
-
-.book-card:nth-child(2) .book-cover {
-    background: var(--orange);
-}
-
-.book-card:nth-child(3) .book-cover {
-    background: var(--ink);
+    object-fit: cover;
+    width: 100%;
 }
 
 .book-card p {
     font-size: .75rem;
+}
+
+.book-card .book-author {
+    font-size: .85rem;
+    margin: 0;
 }
 
 .tag {
@@ -292,6 +243,36 @@ input, select, textarea {
 
 .list-form {
     max-width: 650px;
+}
+
+.form-note {
+    font-size: .7rem;
+    margin-bottom: 0;
+}
+
+.condition-guide {
+    margin-top: 5rem;
+    max-width: 900px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid var(--line);
+    padding: 1rem;
+    text-align: left;
+}
+
+thead {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+tbody tr:nth-child(even) {
+    background: #fffaf2;
 }
 
 .swap-item {
@@ -343,70 +324,6 @@ input, select, textarea {
     font-size: .7rem;
     justify-content: space-between;
     padding: 1.25rem clamp(1.25rem, 5vw, 5rem);
-}
-
-/* Low-fidelity wireframe page: deliberately grayscale and image-free. */
-.wireframe-page {
-    background: #fff;
-    color: #222;
-}
-
-.wireframe-page .site-header, .wireframe-page .site-footer {
-    border-color: #777;
-}
-
-.wireframe-page .brand, .wireframe-page h1, .wireframe-page h2 {
-    color: #222;
-}
-
-.sitemap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .7rem;
-    list-style: none;
-    padding: 0;
-}
-
-.sitemap li {
-    border: 1px solid #555;
-    padding: .7rem;
-}
-
-.wireframes {
-    display: grid;
-    gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-}
-
-.wireframe {
-    border: 2px solid #333;
-    padding: .75rem;
-}
-
-.wf-bar, .wf-nav, .wf-box, .wf-footer {
-    border: 1px solid #555;
-    margin-top: .6rem;
-    padding: .65rem;
-    text-align: center;
-}
-
-.wf-nav {
-    display: flex;
-    justify-content: space-around;
-}
-
-.wf-main {
-    display: grid;
-    gap: .6rem;
-    grid-template-columns: 1fr 2fr;
-}
-
-.wf-box {
-    min-height: 80px;
-}
-
-.wf-box.large {
-    min-height: 180px;
 }
 
 @media (max-width: 760px) {

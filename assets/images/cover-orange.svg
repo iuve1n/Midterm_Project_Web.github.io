@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 420" role="img" aria-labelledby="title description">
+  <title id="title">Orange abstract book cover</title>
+  <desc id="description">An orange cover with a cream arch and small dark shapes.</desc>
+  <rect width="320" height="420" fill="#e96e46"/>
+  <path d="M55 330V210a105 105 0 0 1 210 0v120" fill="#f7f0e4"/>
+  <rect x="89" y="235" width="28" height="62" fill="#213631"/>
+  <rect x="146" y="195" width="28" height="102" fill="#213631"/>
+  <rect x="203" y="255" width="28" height="42" fill="#213631"/>
+</svg>

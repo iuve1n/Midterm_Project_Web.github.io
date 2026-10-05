@@ -18,7 +18,6 @@
       <a class="active" href="list-book.html" aria-current="page">List a book</a>
       <a href="swaps.html">My swaps</a>
       <a href="profile.html">Profile</a>
-      <a href="wireframes.html">Wireframes</a>
     </nav>
   </header>
 
@@ -28,28 +27,61 @@
 
     <section class="form-panel list-form" aria-label="Book listing form">
       <p>Tell the community about a book you are ready to pass on. You can decide what you would like to receive in return.</p>
-      <form action="#" method="post">
+      <form action="list-book.html" method="get">
         <label for="title">Book title</label>
-        <input id="title" type="text" placeholder="e.g. The Song of Achilles" required>
+        <input id="title" name="title" type="text" placeholder="e.g. The Song of Achilles" required>
 
         <label for="author">Author</label>
-        <input id="author" type="text" placeholder="Author name" required>
+        <input id="author" name="author" type="text" placeholder="Author name" required>
 
         <label for="book-condition">Condition</label>
-        <select id="book-condition">
-          <option>Like new</option>
-          <option>Good</option>
-          <option>Well read</option>
+        <select id="book-condition" name="condition" required>
+          <option value="">Choose a condition</option>
+          <option value="like-new">Like new</option>
+          <option value="good">Good</option>
+          <option value="well-read">Well read</option>
         </select>
 
         <label for="wanted">What would you like to swap for?</label>
-        <input id="wanted" type="text" placeholder="Genre, title, or 'open to offers'">
+        <input id="wanted" name="wanted" type="text" placeholder="Genre, title, or 'open to offers'" required>
 
         <label for="note">A note for readers</label>
-        <textarea id="note" rows="5" placeholder="Share anything useful about the book."></textarea>
+        <textarea id="note" name="note" rows="5" placeholder="Share anything useful about the book."></textarea>
 
         <button class="button" type="submit">Publish listing</button>
+        <p class="form-note">This classroom demo checks the form in your browser but does not save the listing.</p>
       </form>
+    </section>
+
+    <section class="condition-guide" aria-labelledby="condition-guide-title">
+      <p class="eyebrow">Before you list</p>
+      <h2 id="condition-guide-title">Book condition guide</h2>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Condition</th>
+            <th scope="col">What it means</th>
+            <th scope="col">Small marks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Like new</th>
+            <td>Clean pages and a cover with almost no wear.</td>
+            <td>None or barely visible</td>
+          </tr>
+          <tr>
+            <th scope="row">Good</th>
+            <td>Fully readable with light wear from normal use.</td>
+            <td>Allowed</td>
+          </tr>
+          <tr>
+            <th scope="row">Well read</th>
+            <td>Readable with clear signs of age or frequent use.</td>
+            <td>Expected</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
   </main>
 

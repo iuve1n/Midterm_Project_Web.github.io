@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 420" role="img" aria-labelledby="title description">
+  <title id="title">Dark abstract book cover</title>
+  <desc id="description">A dark green cover with mustard and orange geometric shapes.</desc>
+  <rect width="320" height="420" fill="#213631"/>
+  <rect x="54" y="65" width="86" height="290" rx="43" fill="#e5b942"/>
+  <rect x="180" y="65" width="86" height="290" rx="43" fill="#e96e46"/>
+  <circle cx="160" cy="210" r="54" fill="#f7f0e4"/>
+</svg>
