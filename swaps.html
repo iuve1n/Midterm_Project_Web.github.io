@@ -1,3 +1,74 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>My swaps — LeafLoop</title><link rel="stylesheet" href="styles.css"></head>
-<body><header class="site-header"><a class="brand" href="index.html">leaf<span>loop</span></a><nav class="site-nav"><a href="index.html">Home</a><a href="browse.html">Browse</a><a href="list-book.html">List a book</a><a class="active" href="swaps.html">My swaps</a><a href="profile.html">Profile</a></nav></header><main><p class="eyebrow">Your reading journey</p><h1>My swaps.</h1><div class="swap-layout"><aside class="filter-panel"><h3>Swap summary</h3><p><strong>2</strong> pending requests</p><p><strong>5</strong> completed swaps</p><a class="button button-outline" href="browse.html">Find another book</a></aside><section><article class="swap-item"><div class="mini-cover">Pachinko</div><div><p class="status">Awaiting reply</p><h3>Pachinko by Min Jin Lee</h3><p>You offered <strong>The Kite Runner</strong> to Amina.</p></div><a class="button" href="#">View request</a></article><article class="swap-item"><div class="mini-cover">Dune</div><div><p class="status">Meet-up planned</p><h3>Dune by Frank Herbert</h3><p>Exchange with Timur at the AITU library on Friday.</p></div><a class="button" href="#">View details</a></article><article class="swap-item"><div class="mini-cover">Circe</div><div><p class="status">Completed</p><h3>Circe by Madeline Miller</h3><p>Swapped with Aigerim last week.</p></div><a class="button" href="#">Leave a review</a></article></section></div></main><footer class="site-footer"><span>© 2026 LeafLoop</span><span>Made for readers, not algorithms.</span></footer></body></html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Review current and completed LeafLoop book swaps.">
+  <title>My swaps | LeafLoop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">leaf<span>loop</span></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="browse.html">Browse</a>
+      <a href="list-book.html">List a book</a>
+      <a class="active" href="swaps.html" aria-current="page">My swaps</a>
+      <a href="profile.html">Profile</a>
+      <a href="wireframes.html">Wireframes</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <p class="eyebrow">Your reading journey</p>
+    <h1>My swaps.</h1>
+
+    <div class="swap-layout">
+      <aside class="filter-panel" aria-labelledby="swap-summary-title">
+        <h2 id="swap-summary-title">Swap summary</h2>
+        <p><strong>2</strong> pending requests</p>
+        <p><strong>5</strong> completed swaps</p>
+        <a class="button button-outline" href="browse.html">Find another book</a>
+      </aside>
+
+      <section aria-label="Swap requests">
+        <article class="swap-item">
+          <div class="mini-cover">Pachinko</div>
+          <div>
+            <p class="status">Awaiting reply</p>
+            <h2>Pachinko by Min Jin Lee</h2>
+            <p>You offered <strong>The Kite Runner</strong> to Amina.</p>
+          </div>
+          <a class="button" href="#">View request</a>
+        </article>
+        <article class="swap-item">
+          <div class="mini-cover">Dune</div>
+          <div>
+            <p class="status">Meet-up planned</p>
+            <h2>Dune by Frank Herbert</h2>
+            <p>Exchange with Timur at the AITU library on Friday.</p>
+          </div>
+          <a class="button" href="#">View details</a>
+        </article>
+        <article class="swap-item">
+          <div class="mini-cover">Circe</div>
+          <div>
+            <p class="status">Completed</p>
+            <h2>Circe by Madeline Miller</h2>
+            <p>Swapped with Aigerim last week.</p>
+          </div>
+          <a class="button" href="#">Leave a review</a>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 LeafLoop</span>
+    <span>Helping Astana readers exchange books locally.</span>
+  </footer>
+</body>
+</html>
