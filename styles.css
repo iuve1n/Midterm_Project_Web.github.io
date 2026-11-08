@@ -308,6 +308,29 @@ input, select, textarea {
     max-width: 650px;
 }
 
+.listing-preview {
+    background: #fffaf2;
+    border: 1px solid var(--line);
+    margin-top: 2rem;
+    padding: 1.25rem;
+}
+
+.listing-preview h2 {
+    font-size: 1.35rem;
+}
+
+.preview-card h3 {
+    font-size: 1.1rem;
+}
+
+.preview-card p:last-child {
+    margin-bottom: 0;
+}
+
+.condition-toggle {
+    margin-bottom: 1rem;
+}
+
 .form-note {
     font-size: .7rem;
     margin-bottom: 0;

@@ -64,6 +64,18 @@
         <p class="form-success" id="listing-message" role="status" aria-live="polite"></p>
         <p class="form-note">This classroom demo checks the form in your browser but does not save the listing.</p>
       </form>
+
+      <section class="listing-preview" id="listing-preview" aria-labelledby="listing-preview-title" hidden>
+        <p class="eyebrow">Preview</p>
+        <h2 id="listing-preview-title">Your listing so far</h2>
+        <article class="preview-card">
+          <h3 data-preview="title">Your book title</h3>
+          <p class="book-author" data-preview="author">Author name</p>
+          <p>Condition: <span data-preview="condition">Choose a condition</span></p>
+          <p>Would like: <span data-preview="wanted">Add your swap request</span></p>
+          <p data-preview="note" hidden></p>
+        </article>
+      </section>
     </section>
 
     <section class="submitted-listings" id="submitted-section" aria-labelledby="submitted-title" hidden>
@@ -75,7 +87,8 @@
     <section class="condition-guide" aria-labelledby="condition-guide-title">
       <p class="eyebrow">Before you list</p>
       <h2 id="condition-guide-title">Book condition guide</h2>
-      <div class="table-responsive">
+      <button class="button condition-toggle" type="button" aria-expanded="true" aria-controls="condition-table" hidden>Hide condition guide</button>
+      <div class="table-responsive" id="condition-table">
         <table class="table table-bordered align-middle mb-0">
           <thead>
             <tr>
@@ -112,6 +125,8 @@
     <span>Book covers from <a href="https://openlibrary.org">Open Library</a>. Default book image from <a href="https://openclipart.org/detail/29190">OpenClipart</a>.</span>
   </footer>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery/jquery-3.7.1.min.js"></script>
   <script src="js/list-book.js"></script>
+  <script src="js/listing-interactions.js"></script>
 </body>
 </html>
