@@ -55,6 +55,8 @@ const books = [
   }
 ];
 
+const favoriteBooks = [];
+
 function getFilteredBooks(bookList, searchText, selectedGenre, selectedCondition) {
   const searchValue = searchText.toLowerCase().trim();
 
@@ -95,7 +97,19 @@ function createBookCard(book) {
   requestLink.href = "swaps.html";
   requestLink.textContent = "Request swap";
 
-  card.append(image, title, author, details, requestLink);
+  const favoriteButton = document.createElement("button");
+  const isFavorite = favoriteBooks.some(function (favoriteBook) {
+    return favoriteBook.title === book.title;
+  });
+  favoriteButton.type = "button";
+  favoriteButton.className = "favorite-button";
+  favoriteButton.setAttribute("aria-pressed", isFavorite ? "true" : "false");
+  favoriteButton.textContent = isFavorite ? "Remove from favorites" : "Add to favorites";
+  favoriteButton.addEventListener("click", function () {
+    toggleFavorite(book);
+  });
+
+  card.append(image, title, author, details, requestLink, favoriteButton);
   return card;
 }
 
@@ -115,6 +129,36 @@ function renderBooks(bookList) {
   }
 }
 
+function renderFavorites() {
+  const favoriteList = document.querySelector("#favorite-list");
+  const favoriteCount = document.querySelector("#favorite-count");
+  const emptyMessage = document.querySelector("#favorite-empty");
+  favoriteList.replaceChildren();
+
+  for (const book of favoriteBooks) {
+    favoriteList.append(createBookCard(book));
+  }
+
+  const savedCount = favoriteBooks.length;
+  favoriteCount.textContent = savedCount + (savedCount === 1 ? " book saved" : " books saved");
+  emptyMessage.hidden = savedCount > 0;
+}
+
+function toggleFavorite(book) {
+  const favoriteIndex = favoriteBooks.findIndex(function (favoriteBook) {
+    return favoriteBook.title === book.title;
+  });
+
+  if (favoriteIndex === -1) {
+    favoriteBooks.push(book);
+  } else {
+    favoriteBooks.splice(favoriteIndex, 1);
+  }
+
+  updateBooks();
+  renderFavorites();
+}
+
 function updateBooks() {
   const searchText = document.querySelector("#search").value;
   const selectedGenre = document.querySelector("#genre").value;
@@ -130,4 +174,5 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector("#condition").addEventListener("change", updateBooks);
 
   renderBooks(books);
+  renderFavorites();
 });

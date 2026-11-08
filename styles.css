@@ -223,6 +223,35 @@ p {
     min-height: 44px;
 }
 
+.favorites-section {
+    margin-top: 5rem;
+}
+
+.favorites-section .section-head {
+    margin-top: 0;
+}
+
+.favorite-button {
+    background: transparent;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    cursor: pointer;
+    font: inherit;
+    font-size: .75rem;
+    min-height: 44px;
+    padding: .7rem;
+    width: 100%;
+}
+
+.favorite-button:hover, .favorite-button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.favorite-grid {
+    margin-top: 1rem;
+}
+
 .book-cover-image {
     display: block;
     height: 220px;
