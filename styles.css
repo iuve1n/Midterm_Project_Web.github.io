@@ -283,6 +283,34 @@ input, select, textarea {
     margin-bottom: 0;
 }
 
+.field-error {
+    color: #a63224;
+    font-size: .72rem;
+    margin: .3rem 0 0;
+    min-height: 1.1rem;
+}
+
+.form-control[aria-invalid="true"], .form-select[aria-invalid="true"] {
+    border-color: #a63224;
+}
+
+.form-success {
+    color: #315c3d;
+    font-size: .8rem;
+    margin: .75rem 0 0;
+}
+
+.submitted-listings {
+    margin-top: 3rem;
+}
+
+.submitted-listing-list {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 650px;
+}
+
 .condition-guide {
     margin-top: 5rem;
     max-width: 900px;

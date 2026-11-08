@@ -35,30 +35,41 @@
 
     <section class="form-panel list-form mt-4" aria-label="Book listing form">
       <p>Tell the community about a book you are ready to pass on. You can decide what you would like to receive in return.</p>
-      <form action="list-book.html" method="get">
+      <form action="list-book.html" method="get" id="listing-form" novalidate>
         <label for="title">Book title</label>
-        <input class="form-control" id="title" name="title" type="text" placeholder="e.g. The Song of Achilles" required>
+        <input class="form-control" id="title" name="title" type="text" placeholder="e.g. The Song of Achilles" aria-describedby="title-error" required>
+        <p class="field-error" id="title-error"></p>
 
         <label for="author">Author</label>
-        <input class="form-control" id="author" name="author" type="text" placeholder="Author name" required>
+        <input class="form-control" id="author" name="author" type="text" placeholder="Author name" aria-describedby="author-error" required>
+        <p class="field-error" id="author-error"></p>
 
         <label for="book-condition">Condition</label>
-        <select class="form-select" id="book-condition" name="condition" required>
+        <select class="form-select" id="book-condition" name="condition" aria-describedby="book-condition-error" required>
           <option value="">Choose a condition</option>
           <option value="like-new">Like new</option>
           <option value="good">Good</option>
           <option value="well-read">Well read</option>
         </select>
+        <p class="field-error" id="book-condition-error"></p>
 
         <label for="wanted">What would you like to swap for?</label>
-        <input class="form-control" id="wanted" name="wanted" type="text" placeholder="Genre, title, or 'open to offers'" required>
+        <input class="form-control" id="wanted" name="wanted" type="text" placeholder="Genre, title, or 'open to offers'" aria-describedby="wanted-error" required>
+        <p class="field-error" id="wanted-error"></p>
 
         <label for="note">A note for readers</label>
         <textarea class="form-control" id="note" name="note" rows="5" placeholder="Share anything useful about the book."></textarea>
 
         <button class="button btn mt-3" type="submit">Publish listing</button>
+        <p class="form-success" id="listing-message" role="status" aria-live="polite"></p>
         <p class="form-note">This classroom demo checks the form in your browser but does not save the listing.</p>
       </form>
+    </section>
+
+    <section class="submitted-listings" id="submitted-section" aria-labelledby="submitted-title" hidden>
+      <p class="eyebrow">Your bookshelf</p>
+      <h2 id="submitted-title">Your listing</h2>
+      <div class="submitted-listing-list" id="submitted-listings"></div>
     </section>
 
     <section class="condition-guide" aria-labelledby="condition-guide-title">
@@ -100,5 +111,6 @@
     <span>Helping Astana readers exchange books locally.</span>
   </footer>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="js/list-book.js"></script>
 </body>
 </html>
