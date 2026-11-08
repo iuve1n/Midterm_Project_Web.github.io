@@ -5,8 +5,8 @@ const books = [
     genre: "Fiction",
     condition: "Good",
     offer: "Swap for contemporary fiction",
-    image: "assets/images/cover-leaf.svg",
-    imageDescription: "Abstract green cover for Normal People"
+    image: "https://covers.openlibrary.org/b/olid/OL27735763M-M.jpg?default=false",
+    imageDescription: "Cover of Normal People by Sally Rooney"
   },
   {
     title: "The Alchemist",
@@ -14,8 +14,8 @@ const books = [
     genre: "Fiction",
     condition: "Like new",
     offer: "Swap for a travel book",
-    image: "assets/images/cover-orange.svg",
-    imageDescription: "Abstract orange cover for The Alchemist"
+    image: "https://covers.openlibrary.org/b/olid/OL9219136M-M.jpg?default=false",
+    imageDescription: "Cover of The Alchemist by Paulo Coelho"
   },
   {
     title: "Sapiens",
@@ -23,8 +23,8 @@ const books = [
     genre: "Non-fiction",
     condition: "Well read",
     offer: "Open to any non-fiction",
-    image: "assets/images/cover-ink.svg",
-    imageDescription: "Abstract dark green cover for Sapiens"
+    image: "https://covers.openlibrary.org/b/olid/OL26414386M-M.jpg?default=false",
+    imageDescription: "Cover of Sapiens by Yuval Noah Harari"
   },
   {
     title: "The Hobbit",
@@ -32,8 +32,8 @@ const books = [
     genre: "Fantasy",
     condition: "Good",
     offer: "Looking for another fantasy book",
-    image: "assets/images/cover-leaf.svg",
-    imageDescription: "Abstract green cover for The Hobbit"
+    image: "https://covers.openlibrary.org/b/olid/OL24992840M-M.jpg?default=false",
+    imageDescription: "Cover of The Hobbit by J.R.R. Tolkien"
   },
   {
     title: "Educated",
@@ -41,8 +41,8 @@ const books = [
     genre: "Non-fiction",
     condition: "Like new",
     offer: "Open to offers",
-    image: "assets/images/cover-orange.svg",
-    imageDescription: "Abstract orange cover for Educated"
+    image: "https://covers.openlibrary.org/b/olid/OL26620627M-M.jpg?default=false",
+    imageDescription: "Cover of Educated by Tara Westover"
   },
   {
     title: "The Night Circus",
@@ -50,12 +50,13 @@ const books = [
     genre: "Fantasy",
     condition: "Well read",
     offer: "Swap for fiction",
-    image: "assets/images/cover-ink.svg",
-    imageDescription: "Abstract dark green cover for The Night Circus"
+    image: "https://covers.openlibrary.org/b/olid/OL24983156M-M.jpg?default=false",
+    imageDescription: "Cover of The Night Circus by Erin Morgenstern"
   }
 ];
 
 const favoriteBooks = [];
+const defaultBookImage = "https://openclipart.org/image/2400px/svg_to_png/29190/MajinCline-Book.png";
 
 function getFilteredBooks(bookList, searchText, selectedGenre, selectedCondition) {
   const searchValue = searchText.toLowerCase().trim();
@@ -76,8 +77,12 @@ function createBookCard(book) {
 
   const image = document.createElement("img");
   image.className = "book-cover-image";
-  image.src = book.image;
-  image.alt = book.imageDescription;
+  image.src = book.image || defaultBookImage;
+  image.alt = book.imageDescription || "Open book illustration";
+  image.loading = "lazy";
+  image.addEventListener("error", function () {
+    image.src = "assets/images/book-stack.svg";
+  }, { once: true });
 
   const title = document.createElement("h2");
   title.textContent = book.title;

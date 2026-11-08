@@ -2,6 +2,7 @@ const listingForm = document.querySelector("#listing-form");
 const listingMessage = document.querySelector("#listing-message");
 const submittedSection = document.querySelector("#submitted-section");
 const submittedListings = document.querySelector("#submitted-listings");
+const defaultBookImage = "https://openclipart.org/image/2400px/svg_to_png/29190/MajinCline-Book.png";
 
 const listingFields = [
   {
@@ -61,6 +62,15 @@ function createListingCard() {
   const card = document.createElement("article");
   card.className = "book-card";
 
+  const image = document.createElement("img");
+  image.className = "book-cover-image";
+  image.src = defaultBookImage;
+  image.alt = "Open book illustration";
+  image.loading = "lazy";
+  image.addEventListener("error", function () {
+    image.src = "assets/images/book-stack.svg";
+  }, { once: true });
+
   const title = document.createElement("h3");
   title.textContent = listingFields[0].input.value.trim();
 
@@ -75,13 +85,14 @@ function createListingCard() {
   wanted.textContent = "Would like: " + listingFields[3].input.value.trim();
 
   const noteValue = document.querySelector("#note").value.trim();
+  card.append(image, title, author, condition, wanted);
+
   if (noteValue !== "") {
     const note = document.createElement("p");
     note.textContent = noteValue;
     card.append(note);
   }
 
-  card.prepend(title, author, condition, wanted);
   return card;
 }
 
