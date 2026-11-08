@@ -117,6 +117,7 @@ listingForm.addEventListener("submit", function (event) {
     const firstInvalidField = listingFields.find(function (field) {
       return field.input.getAttribute("aria-invalid") === "true";
     });
+    // Focus the first invalid field so keyboard users can correct it immediately.
     firstInvalidField.input.focus();
   }
 });

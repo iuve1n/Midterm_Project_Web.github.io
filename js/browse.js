@@ -61,6 +61,7 @@ const defaultBookImage = "https://openclipart.org/image/2400px/svg_to_png/29190/
 function getFilteredBooks(bookList, searchText, selectedGenre, selectedCondition) {
   const searchValue = searchText.toLowerCase().trim();
 
+  // Apply every active filter together so one control does not reset another.
   return bookList.filter(function (book) {
     const matchesSearch = book.title.toLowerCase().includes(searchValue)
       || book.author.toLowerCase().includes(searchValue);

@@ -40,6 +40,7 @@ $(function () {
     $preview.find('[data-preview="note"]').text(note).prop("hidden", !note);
 
     if (hasDetails) {
+      // Remove the hidden attribute before animating so the browser can display the preview.
       $preview.stop(true, true).prop("hidden", false).fadeIn(180);
     } else {
       $preview.stop(true, true).fadeOut(180, function () {
