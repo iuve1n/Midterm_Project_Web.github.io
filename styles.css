@@ -195,6 +195,8 @@ p {
 }
 
 .book-card {
+    display: flex;
+    flex-direction: column;
     transition: border-color .2s ease, transform .2s ease;
 }
 
@@ -231,15 +233,21 @@ p {
     margin-top: 0;
 }
 
-.favorite-button {
-    background: transparent;
+.book-actions {
+    display: grid;
+    gap: .6rem;
+    margin-top: auto;
+    padding-top: .25rem;
+}
+
+.book-actions .button {
     border: 1px solid var(--ink);
-    color: var(--ink);
-    cursor: pointer;
+    border-radius: .375rem;
     font: inherit;
     font-size: .75rem;
-    min-height: 44px;
-    padding: .7rem;
+    height: 3.5rem;
+    line-height: 1.4;
+    padding: .65rem .75rem;
     width: 100%;
 }
 
@@ -402,23 +410,19 @@ tbody tr:nth-child(even) {
     border-bottom: 1px solid var(--line);
     display: grid;
     gap: 1rem;
-    grid-template-columns: 90px minmax(0, 1fr) minmax(120px, auto);
+    grid-template-columns: 90px minmax(0, 1fr) 11rem;
     padding: 1.25rem 0;
 }
 
 .swap-item .button {
     align-self: center;
+    height: 3.5rem;
+    width: 100%;
 }
 
-.mini-cover {
-    align-items: center;
-    background: var(--mustard);
-    display: flex;
-    font-family: Fraunces, serif;
-    justify-content: center;
-    min-height: 105px;
-    padding: .4rem;
-    text-align: center;
+.swap-cover-image {
+    height: 120px;
+    width: 100%;
 }
 
 .status {
@@ -500,7 +504,7 @@ tbody tr:nth-child(even) {
     }
 
     .swap-item {
-        grid-template-columns: 80px minmax(0, 1fr) minmax(120px, auto);
+        grid-template-columns: 80px minmax(0, 1fr) 11rem;
     }
 
     .condition-guide {
@@ -591,8 +595,9 @@ tbody tr:nth-child(even) {
         width: 100%;
     }
 
-    .mini-cover {
-        min-height: 90px;
+    .swap-cover-image {
+        height: 90px;
+        width: 64px;
     }
 
     .condition-guide {

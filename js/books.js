@@ -5,7 +5,7 @@ const books = [
     genre: "Fiction",
     condition: "Good",
     offer: "Swap for contemporary fiction",
-    image: "https://covers.openlibrary.org/b/olid/OL27735763M-M.jpg?default=false",
+    image: "assets/images/covers/normal-people.jpg",
     imageDescription: "Cover of Normal People by Sally Rooney"
   },
   {
@@ -14,7 +14,7 @@ const books = [
     genre: "Fiction",
     condition: "Like new",
     offer: "Swap for a travel book",
-    image: "https://covers.openlibrary.org/b/olid/OL9219136M-M.jpg?default=false",
+    image: "assets/images/covers/the-alchemist.jpg",
     imageDescription: "Cover of The Alchemist by Paulo Coelho"
   },
   {
@@ -23,7 +23,7 @@ const books = [
     genre: "Non-fiction",
     condition: "Well read",
     offer: "Open to any non-fiction",
-    image: "https://covers.openlibrary.org/b/olid/OL26414386M-M.jpg?default=false",
+    image: "assets/images/covers/sapiens.jpg",
     imageDescription: "Cover of Sapiens by Yuval Noah Harari"
   },
   {
@@ -32,7 +32,7 @@ const books = [
     genre: "Fantasy",
     condition: "Good",
     offer: "Looking for another fantasy book",
-    image: "https://covers.openlibrary.org/b/olid/OL24992840M-M.jpg?default=false",
+    image: "assets/images/covers/the-hobbit.jpg",
     imageDescription: "Cover of The Hobbit by J.R.R. Tolkien"
   },
   {
@@ -41,7 +41,7 @@ const books = [
     genre: "Non-fiction",
     condition: "Like new",
     offer: "Open to offers",
-    image: "https://covers.openlibrary.org/b/olid/OL26620627M-M.jpg?default=false",
+    image: "assets/images/covers/educated.jpg",
     imageDescription: "Cover of Educated by Tara Westover"
   },
   {
@@ -50,13 +50,42 @@ const books = [
     genre: "Fantasy",
     condition: "Well read",
     offer: "Swap for fiction",
-    image: "https://covers.openlibrary.org/b/olid/OL24983156M-M.jpg?default=false",
+    image: "assets/images/covers/the-night-circus.jpg",
     imageDescription: "Cover of The Night Circus by Erin Morgenstern"
   }
 ];
 
-const favoriteBooks = [];
-const defaultBookImage = "https://openclipart.org/image/2400px/svg_to_png/29190/MajinCline-Book.png";
+const favoriteBooks = loadFavorites();
+const defaultBookImage = "assets/images/open-book.svg";
+
+function loadFavorites() {
+  try {
+    const savedTitles = JSON.parse(localStorage.getItem("leafloop-favorites") || "[]");
+
+    if (!Array.isArray(savedTitles)) {
+      return [];
+    }
+
+    return books.filter(function (book) {
+      return savedTitles.includes(book.title);
+    });
+  } catch {
+    return [];
+  }
+}
+
+function saveFavorites() {
+  const savedTitles = favoriteBooks.map(function (book) {
+    return book.title;
+  });
+
+  try {
+    localStorage.setItem("leafloop-favorites", JSON.stringify(savedTitles));
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 function getFilteredBooks(bookList, searchText, selectedGenre, selectedCondition) {
   const searchValue = searchText.toLowerCase().trim();
@@ -83,6 +112,7 @@ function createBookCard(book) {
   image.loading = "lazy";
   image.addEventListener("error", function () {
     image.src = "assets/images/book-stack.svg";
+    image.alt = "Book illustration";
   }, { once: true });
 
   const title = document.createElement("h2");
@@ -108,14 +138,18 @@ function createBookCard(book) {
     return favoriteBook.title === book.title;
   });
   favoriteButton.type = "button";
-  favoriteButton.className = "favorite-button";
+  favoriteButton.className = "button button-outline favorite-button";
   favoriteButton.setAttribute("aria-pressed", isFavorite ? "true" : "false");
   favoriteButton.textContent = isFavorite ? "Remove from favorites" : "Add to favorites";
   favoriteButton.addEventListener("click", function () {
     toggleFavorite(book);
   });
 
-  card.append(image, title, author, details, requestLink, favoriteButton);
+  const actions = document.createElement("div");
+  actions.className = "book-actions";
+  actions.append(requestLink, favoriteButton);
+
+  card.append(image, title, author, details, actions);
   return card;
 }
 
@@ -161,8 +195,17 @@ function toggleFavorite(book) {
     favoriteBooks.splice(favoriteIndex, 1);
   }
 
-  updateBooks();
-  renderFavorites();
+  const saved = saveFavorites();
+  const message = document.querySelector("#favorite-message");
+  message.textContent = saved ? "" : "Favorites could not be saved in this browser.";
+
+  if (document.querySelector("#book-list")) {
+    updateBooks();
+  }
+
+  if (document.querySelector("#favorite-list")) {
+    renderFavorites();
+  }
 }
 
 function updateBooks() {
@@ -175,10 +218,15 @@ function updateBooks() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelector("#search").addEventListener("input", updateBooks);
-  document.querySelector("#genre").addEventListener("change", updateBooks);
-  document.querySelector("#condition").addEventListener("change", updateBooks);
+  if (document.querySelector("#book-list")) {
+    document.querySelector("#search").addEventListener("input", updateBooks);
+    document.querySelector("#genre").addEventListener("change", updateBooks);
+    document.querySelector("#condition").addEventListener("change", updateBooks);
 
-  renderBooks(books);
-  renderFavorites();
+    renderBooks(books);
+  }
+
+  if (document.querySelector("#favorite-list")) {
+    renderFavorites();
+  }
 });

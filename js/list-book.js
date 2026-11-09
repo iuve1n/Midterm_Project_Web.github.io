@@ -2,7 +2,7 @@ const listingForm = document.querySelector("#listing-form");
 const listingMessage = document.querySelector("#listing-message");
 const submittedSection = document.querySelector("#submitted-section");
 const submittedListings = document.querySelector("#submitted-listings");
-const defaultBookImage = "https://openclipart.org/image/2400px/svg_to_png/29190/MajinCline-Book.png";
+const defaultBookImage = "assets/images/open-book.svg";
 
 const listingFields = [
   {
@@ -69,6 +69,7 @@ function createListingCard() {
   image.loading = "lazy";
   image.addEventListener("error", function () {
     image.src = "assets/images/book-stack.svg";
+    image.alt = "Book illustration";
   }, { once: true });
 
   const title = document.createElement("h3");

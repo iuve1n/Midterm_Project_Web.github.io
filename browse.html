@@ -6,7 +6,7 @@
   <meta name="description" content="Browse books offered by LeafLoop readers in Astana.">
   <title>Browse books | LeafLoop</title>
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css?v=55413a9">
+  <link rel="stylesheet" href="styles.css?v=profile-favorites">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -58,29 +58,17 @@
 
       <section class="col-lg-9 mt-0" aria-label="Available books">
         <p id="book-results" class="form-note" aria-live="polite"></p>
+        <p id="favorite-message" class="field-error" role="status"></p>
         <div class="book-grid mt-0" id="book-list"></div>
       </section>
     </div>
-
-    <section class="favorites-section" aria-labelledby="favorites-title">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Keep track of books you like</p>
-          <h2 id="favorites-title">Favorite books</h2>
-        </div>
-        <p id="favorite-count" aria-live="polite">0 books saved</p>
-      </div>
-      <p id="favorite-empty">No favorite books yet. Add one from the list above.</p>
-      <div class="book-grid favorite-grid mt-0" id="favorite-list"></div>
-    </section>
   </main>
 
   <footer class="site-footer container-fluid">
     <span>© 2026 LeafLoop</span>
     <span>Helping Astana readers exchange books locally.</span>
-    <span>Book covers from <a href="https://openlibrary.org">Open Library</a>. Default book image from <a href="https://openclipart.org/detail/29190">OpenClipart</a>.</span>
   </footer>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="js/browse.js"></script>
+  <script src="js/books.js"></script>
 </body>
 </html>

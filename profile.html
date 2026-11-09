@@ -6,7 +6,7 @@
   <meta name="description" content="View Olzhas's LeafLoop profile and available books.">
   <title>Profile | LeafLoop</title>
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css?v=55413a9">
+  <link rel="stylesheet" href="styles.css?v=profile-favorites">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -48,17 +48,17 @@
       <section aria-labelledby="available-books-title">
         <div class="section-head">
           <h2 id="available-books-title">Available to trade</h2>
-          <a href="list-book.html">+ List a book</a>
+          <a class="button btn" href="list-book.html">+ List a book</a>
         </div>
         <div class="book-grid">
           <article class="book-card">
-            <img class="book-cover-image" src="https://covers.openlibrary.org/b/olid/OL16958649M-M.jpg?default=false" alt="Cover of The Pragmatic Programmer by Andrew Hunt and David Thomas" loading="lazy">
+            <img class="book-cover-image" src="assets/images/covers/the-pragmatic-programmer.jpg" alt="Cover of The Pragmatic Programmer by Andrew Hunt and David Thomas" loading="lazy">
             <h3>The Pragmatic Programmer</h3>
             <p class="book-author">Andrew Hunt and David Thomas</p>
             <p><span class="tag">Good condition</span><br>Looking for design or fiction.</p>
           </article>
           <article class="book-card">
-            <img class="book-cover-image" src="https://covers.openlibrary.org/b/olid/OL25661982M-M.jpg?default=false" alt="Cover of The Martian by Andy Weir" loading="lazy">
+            <img class="book-cover-image" src="assets/images/covers/the-martian.jpg" alt="Cover of The Martian by Andy Weir" loading="lazy">
             <h3>The Martian</h3>
             <p class="book-author">Andy Weir</p>
             <p><span class="tag">Like new</span><br>Open to offers.</p>
@@ -66,14 +66,26 @@
         </div>
       </section>
     </div>
+    <section class="favorites-section" aria-labelledby="favorites-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Keep track of books you like</p>
+          <h2 id="favorites-title">Favorite books</h2>
+        </div>
+        <p id="favorite-count" aria-live="polite">0 books saved</p>
+      </div>
+      <p id="favorite-empty">No favorite books yet. Find a book on the <a href="browse.html">browse page</a> to save here.</p>
+      <p id="favorite-message" class="field-error" role="status"></p>
+      <div class="book-grid favorite-grid mt-0" id="favorite-list"></div>
+    </section>
   </main>
 
   <footer class="site-footer container-fluid">
     <span>© 2026 LeafLoop</span>
     <span>Helping Astana readers exchange books locally.</span>
-    <span>Book covers from <a href="https://openlibrary.org">Open Library</a>. Default book image from <a href="https://openclipart.org/detail/29190">OpenClipart</a>.</span>
   </footer>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="js/image-fallback.js"></script>
+  <script src="js/books.js"></script>
 </body>
 </html>
