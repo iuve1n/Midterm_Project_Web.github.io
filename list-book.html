@@ -60,8 +60,10 @@
         <label for="note">A note for readers</label>
         <textarea class="form-control" id="note" name="note" rows="5" placeholder="Share anything useful about the book."></textarea>
 
-        <button class="button btn mt-3" type="submit">Publish listing</button>
+        <button class="button btn mt-3" id="listing-submit" type="submit">Publish listing</button>
+        <button class="button button-outline btn mt-3" id="cancel-edit" type="button" hidden>Cancel edit</button>
         <p class="form-success" id="listing-message" role="status" aria-live="polite"></p>
+        <p class="form-note">Your listings are saved in this browser and stay here when you return.</p>
       </form>
 
       <section class="listing-preview" id="listing-preview" aria-labelledby="listing-preview-title" hidden>
@@ -124,6 +126,8 @@
   </footer>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="vendor/jquery/jquery-3.7.1.min.js"></script>
+  <script src="js/book.js"></script>
+  <script src="js/listing-storage.js"></script>
   <script src="js/list-book.js"></script>
   <script src="js/listing-interactions.js"></script>
 </body>

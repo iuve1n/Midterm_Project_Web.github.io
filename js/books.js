@@ -1,4 +1,4 @@
-const books = [
+const bookData = [
   {
     title: "Normal People",
     author: "Sally Rooney",
@@ -55,6 +55,10 @@ const books = [
   }
 ];
 
+const books = bookData.map(function (book) {
+  return new Book(book);
+});
+
 const favoriteBooks = loadFavorites();
 const defaultBookImage = "assets/images/open-book.svg";
 
@@ -88,11 +92,8 @@ function saveFavorites() {
 }
 
 function getFilteredBooks(bookList, searchText, selectedGenre, selectedCondition) {
-  const searchValue = searchText.toLowerCase().trim();
-
   return bookList.filter(function (book) {
-    const matchesSearch = book.title.toLowerCase().includes(searchValue)
-      || book.author.toLowerCase().includes(searchValue);
+    const matchesSearch = book.matchesSearch(searchText);
     const matchesGenre = selectedGenre === "all" || book.genre === selectedGenre;
     const matchesCondition = selectedCondition === "all" || book.condition === selectedCondition;
 
