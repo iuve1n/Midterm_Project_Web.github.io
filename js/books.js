@@ -101,6 +101,26 @@ function getFilteredBooks(bookList, searchText, selectedGenre, selectedCondition
   });
 }
 
+function sortBooks(bookList, sortOrder) {
+  const sortedBooks = bookList.slice();
+
+  if (sortOrder === "title-asc") {
+    sortedBooks.sort(function (firstBook, secondBook) {
+      return firstBook.title.localeCompare(secondBook.title);
+    });
+  } else if (sortOrder === "title-desc") {
+    sortedBooks.sort(function (firstBook, secondBook) {
+      return secondBook.title.localeCompare(firstBook.title);
+    });
+  } else if (sortOrder === "author-asc") {
+    sortedBooks.sort(function (firstBook, secondBook) {
+      return firstBook.author.localeCompare(secondBook.author);
+    });
+  }
+
+  return sortedBooks;
+}
+
 function createBookCard(book) {
   const card = document.createElement("article");
   card.className = "book-card";
@@ -212,9 +232,11 @@ function updateBooks() {
   const searchText = document.querySelector("#search").value;
   const selectedGenre = document.querySelector("#genre").value;
   const selectedCondition = document.querySelector("#condition").value;
+  const sortOrder = document.querySelector("#sort-books").value;
   const filteredBooks = getFilteredBooks(books, searchText, selectedGenre, selectedCondition);
+  const sortedBooks = sortBooks(filteredBooks, sortOrder);
 
-  renderBooks(filteredBooks);
+  renderBooks(sortedBooks);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -222,8 +244,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("#search").addEventListener("input", updateBooks);
     document.querySelector("#genre").addEventListener("change", updateBooks);
     document.querySelector("#condition").addEventListener("change", updateBooks);
+    document.querySelector("#sort-books").addEventListener("change", updateBooks);
 
-    renderBooks(books);
+    updateBooks();
   }
 
   if (document.querySelector("#favorite-list")) {
