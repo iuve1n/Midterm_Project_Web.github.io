@@ -181,6 +181,44 @@ p {
     width: 100%;
 }
 
+.book-search {
+    border: 1px solid var(--line);
+    margin: 2rem 0 3rem;
+    padding: 1.25rem;
+}
+
+.book-search h2, .community-title {
+    font-size: 1.8rem;
+    letter-spacing: normal;
+}
+
+.book-search p, .book-search label {
+    font-size: .8rem;
+}
+
+.book-search label {
+    display: block;
+    margin-bottom: .5rem;
+}
+
+.book-search-controls {
+    display: grid;
+    gap: .75rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.book-search-message {
+    margin: 1rem 0 0;
+}
+
+.book-search-message:empty {
+    display: none;
+}
+
+#book-search-results[hidden] {
+    display: none;
+}
+
 .stats, .book-grid {
     display: grid;
     gap: 1rem;
@@ -513,6 +551,10 @@ tbody tr:nth-child(even) {
 }
 
 @media (max-width: 575.98px) {
+    .book-search-controls {
+        grid-template-columns: 1fr;
+    }
+
     .site-header {
         padding: .75rem 1rem;
     }

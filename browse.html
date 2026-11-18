@@ -6,7 +6,7 @@
   <meta name="description" content="Browse books offered by LeafLoop readers in Astana.">
   <title>Browse books | LeafLoop</title>
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css?v=profile-favorites">
+  <link rel="stylesheet" href="styles.css?v=book-search">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -33,6 +33,21 @@
     <p class="eyebrow">The community shelf</p>
     <h1>Find your next read.</h1>
 
+    <section class="book-search" aria-labelledby="book-search-title">
+      <h2 id="book-search-title">Find more books</h2>
+      <p>Search by title or author for books outside the community shelf.</p>
+      <form id="book-search-form" novalidate>
+        <label for="book-search-query">Title or author</label>
+        <div class="book-search-controls">
+          <input class="form-control" id="book-search-query" name="query" type="search" maxlength="120" placeholder="e.g. The Hobbit or Jane Austen" aria-describedby="book-search-message" required>
+          <button class="button btn" id="book-search-button" type="submit">Search books</button>
+        </div>
+      </form>
+      <p class="book-search-message" id="book-search-message" role="status" aria-live="polite"></p>
+      <div class="book-grid" id="book-search-results" aria-busy="false" hidden></div>
+    </section>
+
+    <h2 class="community-title">Available to swap</h2>
     <div class="filter-bar row g-4 mt-2">
       <aside class="filter-panel col-lg-3" aria-labelledby="filter-title">
         <h2 id="filter-title">Filter books</h2>
@@ -70,5 +85,6 @@
   </footer>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="js/books.js"></script>
+  <script src="js/book-search.js"></script>
 </body>
 </html>
