@@ -1,36 +1,40 @@
 # LeafLoop
 
-LeafLoop is a responsive book exchange website for readers in Astana. It continues the group's midterm and endterm project across five connected pages: Home, Browse, List a book, My swaps, and Profile.
+LeafLoop is a responsive book exchange demo for readers in Astana. For the final project, we built on the same five pages from the midterm and endterm projects. The pages are Home, Browse, List a book, My swaps, and Profile.
 
 ## Group
 
 Olzhas Assemgazy and Amirlan Kuan, SE-2528.
 
-## Final-stage features
+## What we added for the final project
 
-- Search Open Library for books and open a detail panel with publication information, description, subjects, and a link to the book record.
-- Use the `Book` class for catalogue and reader-submitted book records.
-- Save favorites, the profile name, and book listings in browser `localStorage`. Saved listings can be created, viewed, edited, and deleted.
-- Sort the community catalogue by title or author while keeping the search, genre, and condition filters active.
-- Show loading, empty-result, timeout, and error messages for API requests.
+- On Browse, search Open Library by title or author. Results show the cover, author, and publication year when available. **View details** opens the description and subjects in LeafLoop.
+- Sort the community catalogue by title or author. Sorting works with the existing search, genre, and condition filters.
+- Publish, edit, and delete listings on **List a book**. Saved listings stay on that page after a refresh.
+- Change the display name on **Profile**. The saved name also appears in the shelf heading.
 
-Earlier features remain available: form validation, a live listing preview, a condition guide, favorites, and the five-page navigation.
+## Features we kept
+
+The community catalogue still supports search and filters. You can save a book on Browse and remove it from favorites on Profile. The listing form still checks required fields, shows a live preview, and has a condition guide you can show or hide. **My swaps** shows sample requests and their statuses.
+
+The project uses HTML, CSS, Bootstrap, JavaScript, and jQuery. The `Book` class is shared by the community catalogue and listing form. Listings, favorites, and the profile name are saved in the browser using `localStorage`.
 
 ## API
 
-The Browse page uses the public [Open Library Search API](https://openlibrary.org/developers/api) at `https://openlibrary.org/search.json` and requests book records at `https://openlibrary.org/works/{work-id}.json`. The API does not require a key. An internet connection is needed for remote searches and book details; the community catalogue and saved browser data remain available without the API.
+Book search uses `https://openlibrary.org/search.json` and shows up to nine results. When you open the details, LeafLoop requests `https://openlibrary.org/works/{work-id}.json`. Covers load from the Covers API, with a local illustration for missing images. All three requests work without an API key and require an internet connection. Search and details show loading and error messages, and search also tells you when there are no matches. [Open Library API docs](https://openlibrary.org/developers/api)
 
 ## Run and check the site
 
-Open the project folder in VS Code, start Live Server, and open `index.html`. Use one browser and site address while checking `localStorage` features so all pages share the same saved data. Bootstrap, jQuery, and the book images are included in the project.
+Open the project folder in VS Code and start Live Server on `index.html`. Open each page from the site navigation so the pages share the same browser storage.
 
-To check the main features:
+1. On Browse, look up `The Hobbit` under **Find more books**. Open **View details**, then close it to return to the results.
+2. In the community catalogue, select a genre or condition and change **Sort by**. Save a favorite and check it on Profile.
+3. On **List a book**, submit an empty form to see the validation messages. Fill it in to see the preview. Publish the listing, refresh the page, then edit or delete it below the form. Try hiding and showing the condition guide.
+4. On Profile, enter a name and click **Save name**. Refresh the page to check that the name stays saved.
 
-1. On **Browse**, search the Open Library catalogue, open a result's details, then try the community search, genre and condition filters, and each sort option.
-2. Save a community book as a favorite, open **Profile**, refresh, and remove the favorite.
-3. On **List a book**, submit an empty form to see validation messages. Then publish a valid listing, edit it, refresh the page, and delete it.
-4. Change the profile name and refresh the page to check that it is saved.
-5. Visit all five pages, resize the browser to a phone width, and check the browser console while using the forms and controls.
+## Image credits
+
+The sample book covers come from [Open Library](https://openlibrary.org). The open book illustration used for new listings and missing search covers is by [MajinCline on OpenClipart](https://openclipart.org/detail/29190).
 
 ## Repository and published site
 
