@@ -477,6 +477,33 @@ tbody tr:nth-child(even) {
     color: var(--mustard);
 }
 
+.profile-form {
+    margin: 1.5rem 0;
+}
+
+.profile-form label {
+    display: block;
+    font-size: .75rem;
+    margin-bottom: .5rem;
+}
+
+.profile-form .button {
+    background: var(--mustard);
+    color: var(--ink);
+    margin-top: .75rem;
+    width: 100%;
+}
+
+.profile-form .button:hover {
+    background: var(--paper);
+}
+
+.profile-form p {
+    font-size: .75rem;
+    margin: .75rem 0 0;
+    min-height: 1.25rem;
+}
+
 .profile-list {
     list-style: none;
     padding: 0;

@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="View Olzhas's LeafLoop profile and available books.">
+  <meta name="description" content="View your LeafLoop profile, available books, and favorites.">
   <title>Profile | LeafLoop</title>
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css?v=profile-favorites">
+  <link rel="stylesheet" href="styles.css?v=profile-name">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -31,13 +31,19 @@
 
   <main class="container" id="main-content">
     <p class="eyebrow">Reader profile</p>
-    <h1>Olzhas's shelf.</h1>
+    <h1 id="profile-heading">Your bookshelf.</h1>
 
     <div class="profile-layout mt-4">
       <aside class="profile-aside" aria-labelledby="reader-name">
         <p class="eyebrow">Reader since 2026</p>
-        <h2 id="reader-name">Olzhas<br>Assemgazy</h2>
-        <p>SE-2528 · Astana</p>
+        <h2 id="reader-name">Reader</h2>
+        <p>Astana</p>
+        <form class="profile-form" id="profile-form" novalidate>
+          <label for="profile-name">Your name</label>
+          <input class="form-control" id="profile-name" name="name" type="text" autocomplete="name" maxlength="60" aria-describedby="profile-name-message" required>
+          <button class="button btn" type="submit">Save name</button>
+          <p id="profile-name-message" role="status" aria-live="polite"></p>
+        </form>
         <ul class="profile-list">
           <li>12 books listed</li>
           <li>5 swaps completed</li>
@@ -87,5 +93,6 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="js/image-fallback.js"></script>
   <script src="js/books.js"></script>
+  <script src="js/profile.js"></script>
 </body>
 </html>
