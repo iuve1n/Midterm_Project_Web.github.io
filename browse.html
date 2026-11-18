@@ -6,7 +6,7 @@
   <meta name="description" content="Browse books offered by LeafLoop readers in Astana.">
   <title>Browse books | LeafLoop</title>
   <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="styles.css?v=book-search">
+  <link rel="stylesheet" href="styles.css?v=book-details">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -79,6 +79,27 @@
     </div>
   </main>
 
+  <dialog class="book-details" id="book-details" aria-labelledby="book-details-title">
+    <div class="book-details-header">
+      <h2 id="book-details-title">Book details</h2>
+      <button class="button btn" id="book-details-close" type="button">Close</button>
+    </div>
+    <p id="book-details-message" role="status" aria-live="polite"></p>
+    <div class="book-details-content" id="book-details-content" aria-busy="false" hidden>
+      <div class="book-details-cover" id="book-details-cover"></div>
+      <div>
+        <p class="book-author" id="book-details-author"></p>
+        <p id="book-details-year"></p>
+        <h3>About this book</h3>
+        <p class="book-description" id="book-details-description"></p>
+        <h3>Subjects</h3>
+        <p id="book-details-subjects"></p>
+        <a class="button btn" id="book-details-link" target="_blank" rel="noopener noreferrer">More on Open Library</a>
+      </div>
+    </div>
+    <button class="button btn" id="book-details-retry" type="button" hidden>Try again</button>
+  </dialog>
+
   <footer class="site-footer container-fluid">
     <span>© 2026 LeafLoop</span>
     <span>Helping Astana readers exchange books locally.</span>
@@ -86,5 +107,6 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="js/books.js"></script>
   <script src="js/book-search.js"></script>
+  <script src="js/book-details.js"></script>
 </body>
 </html>

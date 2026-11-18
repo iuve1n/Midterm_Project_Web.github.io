@@ -4,10 +4,7 @@ const bookSearchButton = document.querySelector("#book-search-button");
 const bookSearchMessage = document.querySelector("#book-search-message");
 const bookSearchResults = document.querySelector("#book-search-results");
 
-function createSearchCard(book) {
-  const card = document.createElement("article");
-  card.className = "book-card";
-
+function createSearchCover(book, size) {
   const image = document.createElement("img");
   image.className = "book-cover-image";
   image.src = "assets/images/open-book.svg";
@@ -15,7 +12,7 @@ function createSearchCard(book) {
   image.loading = "lazy";
 
   if (Number.isInteger(book.cover_i) && book.cover_i > 0) {
-    image.src = "https://covers.openlibrary.org/b/id/" + book.cover_i + "-M.jpg?default=false";
+    image.src = "https://covers.openlibrary.org/b/id/" + book.cover_i + "-" + size + ".jpg?default=false";
     image.alt = "Cover of " + book.title;
   }
 
@@ -23,6 +20,14 @@ function createSearchCard(book) {
     image.src = "assets/images/open-book.svg";
     image.alt = "Open book illustration";
   }, { once: true });
+
+  return image;
+}
+
+function createSearchCard(book) {
+  const card = document.createElement("article");
+  card.className = "book-card";
+  const image = createSearchCover(book, "M");
 
   const title = document.createElement("h3");
   title.textContent = book.title || "Untitled book";
@@ -38,16 +43,17 @@ function createSearchCard(book) {
     ? "First published in " + book.first_publish_year
     : "Publication year unavailable";
 
-  const link = document.createElement("a");
-  link.className = "button btn";
-  link.href = "https://openlibrary.org" + book.key;
-  link.target = "_blank";
-  link.rel = "noopener noreferrer";
-  link.textContent = "View book";
+  const detailsButton = document.createElement("button");
+  detailsButton.type = "button";
+  detailsButton.className = "button btn";
+  detailsButton.textContent = "View details";
+  detailsButton.addEventListener("click", function () {
+    openBookDetails(book);
+  });
 
   const actions = document.createElement("div");
   actions.className = "book-actions";
-  actions.append(link);
+  actions.append(detailsButton);
   card.append(image, title, author, year, actions);
   return card;
 }
